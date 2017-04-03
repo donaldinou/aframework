@@ -1,0 +1,6 @@
+<h1>Bienvenue sur AcreatFramework V2</h1>
+
+<? if($this->controller->db) { ?>
+<h2>Informations de base de donnée</h2>
+<pre><? print_r($this->controller->db); ?></pre>
+<? } ?>

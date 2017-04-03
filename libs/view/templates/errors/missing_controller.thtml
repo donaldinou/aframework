@@ -1,0 +1,60 @@
+<?php
+/* SVN FILE: $Id: missing_controller.thtml 1639 2005-12-27 03:33:44Z phpnut $ */
+
+/**
+ *
+ *
+ *
+ *
+ * PHP versions 4 and 5
+ *
+ * CakePHP :  Rapid Development Framework <http://www.cakephp.org/>
+ * Copyright (c) 2005, Cake Software Foundation, Inc.
+ *                     1785 E. Sahara Avenue, Suite 490-204
+ *                     Las Vegas, Nevada 89104
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright    Copyright (c) 2005, Cake Software Foundation, Inc.
+ * @link         http://www.cakefoundation.org/projects/info/cakephp CakePHP Project
+ * @package      cake
+ * @subpackage   cake.cake.libs.view.templates.errors
+ * @since        CakePHP v 0.10.0.1076
+ * @version      $Revision: 1639 $
+ * @modifiedby   $LastChangedBy: phpnut $
+ * @lastmodified $Date: 2005-12-26 21:33:44 -0600 (Mon, 26 Dec 2005) $
+ * @license      http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+?>
+<h1>Missing controller</h1>
+<?php $missing = $this->controller->missingController; ?>
+<p class="error">You are seeing this error because controller <em><?php echo $missing;?></em>
+  could not be found.
+</p>
+
+<p>
+<span class="notice"><strong>Notice:</strong> this error is being rendered by the <code>app/views/errors/missing_controller.thtml</code>
+view file, a user-customizable error page for handling invalid controller dispatches.</span>
+</p>
+
+<p>
+<strong>Fatal</strong>: Unable to load controller <em><?php echo $missing;?></em>
+</p>
+<p>
+<strong>Fatal</strong>: Create Class:
+</p>
+<p>
+<?php echo "<pre>&lt;?php\n\nclass " . $missing ." extends AppController {\n}\n\n?&gt;</pre>"; ?>
+in file : <?php echo "app".DS."controllers".DS.Inflector::underscore($missing).".php"; ?>
+</p>
+<?php if (DEBUG>1):?>
+<h2>Controller dump:</h2>
+<pre>
+<?php
+unset($this->db);
+print_r($this);
+?>
+</pre>
+<?php endif;?>

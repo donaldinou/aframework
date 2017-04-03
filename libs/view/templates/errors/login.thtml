@@ -1,0 +1,70 @@
+<style>
+.FormLogin {
+	margin:auto;
+	margin-top:5%;
+	width: 251px;
+	border: 1px outset #f3f3f3;
+	font-family:Arial, Helvetica, sans-serif;
+	background: #f3f3f3;
+	font-size:12px;
+	padding:8px;
+}
+
+.FormLogin form { display:inline; }
+
+.FormLogin dl {
+	margin:5px auto;
+}
+
+.FormLogin dt {
+	color: #333;
+	position: absolute;
+	font-weight:bold;
+	height:22px;
+	line-height:22px;
+}
+
+.FormLogin dd {
+	padding: 0 0 4px 0;
+	margin-left: 0px;
+	padding-left: 85px;
+}
+
+.FormLogin dd INPUT {
+	width:160px;
+}
+
+
+.FormLogin .MESSAGE {
+	background: InfoBackground;
+	border: 1px solid #c00;
+	padding: 3px;
+	text-align:center;
+	font-weight:bold;
+	color: #c00;
+	margin-bottom: 0px;
+}
+
+.FormLogin .SubmitBtn  {
+	text-align:center;
+	width:auto;
+}
+
+.FormLogin .SubmitBtn INPUT  {
+	font-size:12px;
+	font-weight:bold;
+}
+</style>
+<h1>Vous devez vous identifier pour continuer :</h1>
+<div class="FormLogin">
+	<?=$this->message()?>
+	<form method="post" action="<?=get_clean_url("logout")?>">
+	<dl>
+		<dt>Login</dt>
+		<dd><input type="text" name="login" value="" maxlength="20"/></dd>
+		<dt>Mot de passe</dt>
+		<dd><input type="password" name="password" value=""/></dd>
+   </dl>
+   <div class="SubmitBtn"><input type="submit" name="btnSignIn" value="Identification" class="submit" /></div>
+   </form>
+</div>
